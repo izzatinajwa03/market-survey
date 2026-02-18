@@ -1,4 +1,12 @@
-<link rel="stylesheet" href="style.css">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Sign Up - Market Survey Pro</title>
+</head>
+<body>
 
 <div class="auth-wrapper">
     <div class="auth-card">
@@ -6,15 +14,18 @@
         <p style="text-align:center; color:var(--text-sub)">Join the Market Survey platform</p>
         
         <div class="auth-form-group">
-            <input id="su_user" type="text" placeholder="Username">
+            <label style="font-size: 12px; font-weight: 600; color: var(--text-main);">Username</label>
+            <input id="su_user" type="text" placeholder="Choose a username">
         </div>
         
         <div class="auth-form-group">
-            <input id="su_pass" type="password" placeholder="Password">
+            <label style="font-size: 12px; font-weight: 600; color: var(--text-main);">Password</label>
+            <input id="su_pass" type="password" placeholder="Create a password">
         </div>
 
         <div class="auth-form-group">
-            <input id="su_pass_confirm" type="password" placeholder="Confirm Password">
+            <label style="font-size: 12px; font-weight: 600; color: var(--text-main);">Confirm Password</label>
+            <input id="su_pass_confirm" type="password" placeholder="Repeat password">
         </div>
         
         <div class="auth-footer">
@@ -23,4 +34,7 @@
         </div>
     </div>
 </div>
+
 <script src="app.js"></script>
+</body>
+</html>
