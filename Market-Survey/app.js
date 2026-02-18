@@ -294,3 +294,20 @@ function copyLink() {
     alert('Survey link copied to clipboard!');
 
 }
+
+// LOAD SAVED TEXT WHEN PAGE LOADS
+window.addEventListener("DOMContentLoaded", () => {
+    const saved = localStorage.getItem("introText");
+    if (saved) {
+        document.getElementById("editableIntro").innerHTML = saved;
+    }
+});
+
+// SAVE BUTTON FUNCTION
+function saveIntroText() {
+    const content = document.getElementById("editableIntro").innerHTML;
+    localStorage.setItem("introText", content);
+    alert("Saved successfully!");
+}
+
+
