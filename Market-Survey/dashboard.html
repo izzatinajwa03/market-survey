@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Market Survey Pro Dashboard</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="nav-bar">
+    <div class="nav-brand">Market Survey</div>
+    <div class="nav-links">
+        <a href="dashboard.html" class="nav-item active">📋 Questions</a>
+        <a href="responses.html" class="nav-item">📊 Responses</a>
+    </div>
+    <a href="login.html" onclick="logout()" class="logout-btn">Logout</a>
+</div>
+
+<div class="main-container">
+
+<div class="section-card">
+    <div class="section-header">
+        <span>PROMPT EDITOR</span>
+        <div class="text-toolbar">
+            <button type="button" class="style-btn" onclick="formatText('bold')"><b>B</b></button>
+            <button type="button" class="style-btn" onclick="formatText('italic')"><i>I</i></button>
+            <button type="button" class="style-btn" onclick="formatText('underline')"><u>U</u></button>
+            <div class="font-size-group">
+                <label>Size:</label>
+                <input type="range" min="12" max="32" value="16" oninput="adjustSectionFontSize('editableIntro', this.value)">
+            </div>
+        </div>
+    </div>
+    <div id="editableIntro" contenteditable="true" class="editable-section">
+        </div>
+    <button onclick="saveIntroText()">💾 Save Changes</button>
+</div>
+
+    <div class="section-card">
+        <div class="section-header">
+            <span id="textCountry" contenteditable="true" class="editable-q">1) Please state your current residential country:</span>
+            <input type="range" min="12" max="24" value="16" oninput="adjustSectionFontSize('boxCountryContent', this.value)" style="width: 80px;">
+        </div>
+        <div id="boxCountryContent" class="vertical-options">
+            <label><input type="radio" name="country" value="Malaysia"> <span contenteditable="true">Malaysia</span></label>
+            <label><input type="radio" name="country" value="Other"> <span contenteditable="true">Other</span></label>
+            <select id="countryDropdown" class="country-dropdown">
+                <option value="">-- Choose Country --</option>
+            </select>
+            <input type="text" id="customCountry" placeholder="Or type your country" class="custom-input">
+        </div>
+    </div>
+
+    <div class="section-card">
+        <div class="section-header">
+            <span id="textOrg" contenteditable="true" class="editable-q">2) State the type of your organization/industry:</span>
+            <input type="range" min="12" max="24" value="16" oninput="adjustSectionFontSize('boxOrgContent', this.value)" style="width: 80px;">
+        </div>
+        <div id="boxOrgContent" class="vertical-options">
+            <label><input type="radio" name="org" value="Government"> <span contenteditable="true">Government</span></label>
+            <label><input type="radio" name="org" value="Private Sector"> <span contenteditable="true">Private Sector</span></label>
+            <label><input type="radio" name="org" value="Education"> <span contenteditable="true">Education</span></label>
+            <label><input type="radio" name="org" value="Self-Employed"> <span contenteditable="true">Self-Employed</span></label>
+            <input type="text" id="orgOther" placeholder="Other (type here)" class="custom-input">
+        </div>
+    </div>
+
+    <div class="section-card">
+        <div class="section-header">
+            <span id="textPos" contenteditable="true" class="editable-q">3) State your current position in your organization:</span>
+            <input type="range" min="12" max="24" value="16" oninput="adjustSectionFontSize('boxPosContent', this.value)" style="width: 80px;">
+        </div>
+        <div id="boxPosContent">
+            <input type="text" placeholder="Type your answer here..." class="custom-input">
+        </div>
+    </div>
+
+<div class="section-card no-print">
+    <h2>Create Your Own Questions</h2>
+    <div id="customQuestionsContainer"></div>
+    <div class="builder-actions">
+        <button onclick="addCustomQuestion()">➕ Add New Question</button>
+        <button onclick="saveCustomQuestions()">💾 Save Questions</button>
+        <button onclick="removeLastQuestion()" class="btn-delete-q">🗑️ Remove Last Question</button>
+    </div>
+</div>
+
+    <div class="section-card">
+        <h2>Saved Custom Questions</h2>
+        <div id="customQuestionsDisplay"></div>
+    </div>
+
+<div class="section-card config-container no-print"> <div class="section-header">
+        <h2 style="margin:0">Survey Settings and status</h2>
+        <div class="status-badge live">● Live</div>
+    </div>
+    
+    <div class="config-grid">
+        <div class="config-item">
+            <span class="config-label">Administrator</span>
+            <span class="config-value" id="user">Loading...</span>
+        </div>
+        <div class="config-item">
+            <span class="config-label">Last Modified</span>
+            <span class="config-value" id="lastModified">Just Now</span>
+        </div>
+    </div>
+
+    <div class="config-actions">
+        <button class="btn-outline" onclick="copyLink()">🔗 Copy Link</button>
+        <button class="btn-primary" onclick="window.print()">🖨️ Export PDF Summary</button>
+        </div>
+</div>
+
+
+
+<script src="app.js"></script>
+</body>
+</html>

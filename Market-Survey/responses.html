@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Survey Responses - Market Survey Pro</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="nav-bar">
+    <div class="nav-brand">Market Survey</div>
+    <div class="nav-links">
+        <a href="dashboard.html" class="nav-item">📋 Questions</a>
+        <a href="responses.html" class="nav-item active">📊 Responses</a>
+    </div>
+    <a href="login.html" onclick="logout()" class="logout-btn">Logout</a>
+</div>
+
+<div class="main-container">
+    <div class="stats-grid">
+        <div class="stat-card">
+            <span class="stat-label">Total Responses</span>
+            <span class="stat-value" id="totalCount">120</span>
+        </div>
+        <div class="stat-card">
+            <span class="stat-label">Completion Rate</span>
+            <span class="stat-value">94%</span>
+        </div>
+        <div class="stat-card">
+            <span class="stat-label">Avg. Time Taken</span>
+            <span class="stat-value">2m 45s</span>
+        </div>
+    </div>
+
+    <div class="section-card">
+        <div class="section-header">
+            <h3>Visual Analytics</h3>
+            <div class="chart-controls">
+                <label for="chartType">View as:</label>
+                <select id="chartType" onchange="updateChartType(this.value)">
+                    <option value="pie">🍕 Pie Chart</option>
+                    <option value="bar">📊 Bar Graph</option>
+                </select>
+            </div>
+        </div>
+        
+        <div class="chart-container">
+            <canvas id="responsesChart"></canvas>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
